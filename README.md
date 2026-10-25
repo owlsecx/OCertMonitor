@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Monitor CT logs for suspicious SSL/TLS certificates ║
+OCertMonitor watches Certificate Transparency logs for suspicious SSL/TLS certificates issued for your brands and domains. It queries crt.sh with Cert Spotter and Facebook CT fallbacks, detects typosquatting and IDN/punycode look-alikes, and assigns a 0–100 threat score with risk classification. It can run one-shot scans or continuous monitoring with email/webhook notifications and HTML/CSV/JSON export.
 
 ---
 
 ## ✨ Features
 
-- OCertMonitor v3.0 - Certificate Transparency log monitor with typosquatting and IDN homograph detection, threat scoring, alerts and live TLS checks
+- CT log monitoring via crt.sh with Cert Spotter and Facebook CT fallbacks
+- Typosquatting detection and IDN/punycode look-alike alerts
+- Threat scoring (0–100) with risk classification
+- One-shot scan and continuous monitor mode with cron-style intervals
+- Live TLS endpoint checks (expiry, chain, SANs)
+- Email/webhook notifications and HTML/CSV/JSON export
 
 ---
 
@@ -38,7 +43,10 @@ Monitor CT logs for suspicious SSL/TLS certificates ║
 ## 🚀 Usage
 
 ```bash
-./OCertMonitor
+./OCertMonitor --scan example.com
+./OCertMonitor --check example.com:443
+./OCertMonitor --monitor --interval 3600 --export json
+./OCertMonitor --help
 ```
 
 ---
